@@ -13,7 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
+Route::resource('/user-space', \App\Http\Controllers\UserController::class);
+Route::post('/user-space/store',[\App\Http\Controllers\UserController::class, 'store']);
