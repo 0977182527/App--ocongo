@@ -1,27 +1,65 @@
 <div>
     <h2>Ajouter une nouvelle maison !</h2>
 
-    <form method="POST" action="/user-space">
+    <form method="POST" action="/store" multiple="multiple/form-data">
         @csrf
-
         <fieldset>
+
             <legend>Details maison</legend>
-            <input type="text" value="" name="province" placeholder="province">
+            <input type="file"  name="image" />
+            @error('image')
+            {{$message}}
+            @enderror
             <br>
-            <input type="text" value="" name="ville" placeholder="ville">
+            <div>
+                <input type="text" value="{{old('province')}}" name="province" placeholder="province">
+                @error('province')
+                    {{$message}}
+                @enderror
+            </div>
+            <br>
+            <input type="text" value="{{old('ville')}}" name="ville" placeholder="ville">
+            @error('ville')
+            {{$message}}
+            @enderror
+            <br>
+            <input type="text" name="commune" placeholder="commune">
+            @error('commune')
+            {{$message}}
+            @enderror
             <br>
             <input type="text" value="" name="quartier" placeholder="quartier">
+            @error('quartier')
+            {{$message}}
+            @enderror
+            <br>
+            <input type="text" value="" name="avenue_rue" placeholder="avenue/rue">
+            @error('avenue_rue')
+            {{$message}}
+            @enderror
             <br>
             <input type="text" value="" name="numero" placeholder="numero">
+            @error('numero')
+            {{$message}}
+            @enderror
             <br>
         </fieldset>
         <fieldset>
             <legend>Partie proprietaire</legend>
-            <input type="text" value="" name="name" placeholder="nom">
+            <input type="text" value="" name="nom" placeholder="nom">
+            @error('nom')
+            {{$message}}
+            @enderror
             <br>
-            <input type="email" value="" name="telephone" placeholder="email">
+            <input type="email" value="" name="email" placeholder="email">
+            @error('email')
+            {{$message}}
+            @enderror
             <br>
-            <input type="tel" value="" name="telephone" placeholder="telephone">
+            <input type="text" value="" name="telephone" placeholder="telephone">
+            @error('telephone')
+            {{$message}}
+            @enderror
             <br>
         </fieldset>
 

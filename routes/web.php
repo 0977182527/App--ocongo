@@ -13,5 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/user-space', \App\Http\Controllers\UserController::class);
-Route::post('/user-space/store',[\App\Http\Controllers\UserController::class, 'store']);
+Route::get('/', [\App\Http\Controllers\UserController::class, 'index']);
+Route::get('/create', [\App\Http\Controllers\UserController::class, 'create']);
+Route::post('/store', [\App\Http\Controllers\UserController::class, 'store']);
+Route::get('/edit/{id}', [\App\Http\Controllers\UserController::class, 'edit']);
